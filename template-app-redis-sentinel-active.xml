@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2017-04-21T16:43:53Z</date>
+    <date>2016-06-02T13:46:38Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template App Redis Sentinel</template>
-            <name>Template App Redis Sentinel</name>
+            <template>Template App Redis Sentinel Active</template>
+            <name>Template App Redis Sentinel Active</name>
             <description/>
             <groups>
                 <group>
@@ -25,7 +25,7 @@
             <items>
                 <item>
                     <name>Number of running processes ($1)</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
@@ -70,7 +70,7 @@
             <discovery_rules>
                 <discovery_rule>
                     <name>Items discovery</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>redis_sentinel.discovery[{$REDIS_SENTINEL_LOCATIONS},items]</key>
@@ -276,7 +276,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template App Redis Sentinel:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;server:uptime_in_seconds&quot;].last()}&lt;600</expression>
+                            <expression>{Template App Redis Sentinel Active:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;server:uptime_in_seconds&quot;].last()}&lt;600</expression>
                             <name>Redis Sentinel[{#LOCATION}] has been restarted</name>
                             <url/>
                             <status>0</status>
@@ -312,7 +312,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;sentinel:sentinel_masters&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -344,7 +344,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;sentinel:sentinel_running_scripts&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -356,7 +356,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;sentinel:sentinel_scripts_queue_length&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -388,7 +388,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;server:uptime_in_seconds&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -399,7 +399,7 @@
                 </discovery_rule>
                 <discovery_rule>
                     <name>Masters discovery</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>redis_sentinel.discovery[{$REDIS_SENTINEL_LOCATIONS},masters]</key>
@@ -648,7 +648,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template App Redis Sentinel:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:ckquorum&quot;].last()}&lt;&gt;1</expression>
+                            <expression>{Template App Redis Sentinel Active:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:ckquorum&quot;].last()}&lt;&gt;1</expression>
                             <name>Redis Sentinel[{#LOCATION}] {#SUBJECT} cannot reach quorum</name>
                             <url/>
                             <status>0</status>
@@ -657,7 +657,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template App Redis Sentinel:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:sentinels&quot;].last()}&lt;&gt;{Template App Redis Sentinel:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:usable_sentinels&quot;].last()}</expression>
+                            <expression>{Template App Redis Sentinel Active:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:sentinels&quot;].last()}&lt;&gt;{Template App Redis Sentinel Active:redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:usable_sentinels&quot;].last()}</expression>
                             <name>Redis Sentinel[{#LOCATION}] {#SUBJECT} is not able to use all sentinels</name>
                             <url/>
                             <status>0</status>
@@ -693,7 +693,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:ckquorum&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -705,7 +705,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:sentinels&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -717,7 +717,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:usable_sentinels&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -749,7 +749,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template App Redis Sentinel</host>
+                                        <host>Template App Redis Sentinel Active</host>
                                         <key>redis_sentinel.info[&quot;{#LOCATION_ID}&quot;,&quot;masters:{#SUBJECT_ID}:slaves&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -771,7 +771,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template App Redis Sentinel:proc.num[redis-sentinel].last()}&lt;1</expression>
+            <expression>{Template App Redis Sentinel Active:proc.num[redis-sentinel].last()}&lt;1</expression>
             <name>Redis Sentinel is not running</name>
             <url/>
             <status>0</status>
